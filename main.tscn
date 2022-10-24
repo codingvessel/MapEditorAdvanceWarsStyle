@@ -1,0 +1,136 @@
+[gd_scene load_steps=14 format=3 uid="uid://dfwvhucf26qyw"]
+
+[ext_resource type="Texture2D" uid="uid://dv5eliof626hf" path="res://Assets/PH_Spritesheet.png" id="1_7yrix"]
+[ext_resource type="Texture2D" uid="uid://djtb00ur8lgfx" path="res://Assets/PH_FACTORY.png" id="1_38b5r"]
+[ext_resource type="Script" path="res://EditorObject.gd" id="1_bqh2l"]
+[ext_resource type="Texture2D" uid="uid://cm6i0apr7irag" path="res://Assets/PH_FOREST.png" id="2_mq027"]
+[ext_resource type="Script" path="res://ItemTexture.gd" id="3_alvk2"]
+[ext_resource type="Script" path="res://TabContainer.gd" id="3_kes3n"]
+[ext_resource type="Texture2D" uid="uid://dwn35dw3186va" path="res://Assets/PH_HILL.png" id="3_nkyg2"]
+[ext_resource type="Texture2D" uid="uid://b0nobuhucymy5" path="res://Assets/PH_TOWN.png" id="4_8a0nq"]
+[ext_resource type="Texture2D" uid="uid://ces6l2xjx5yia" path="res://Assets/PH_WATER.png" id="5_d1gaq"]
+[ext_resource type="Texture2D" uid="uid://x6q4xoyxoyp0" path="res://Assets/PH_GRASS.png" id="6_5m2tc"]
+[ext_resource type="Texture2D" uid="uid://yr6prkef2bpr" path="res://Assets/PH_STREET.png" id="7_fj5yt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr5ic"]
+texture = ExtResource("1_7yrix")
+0:0/0 = 0
+0:0/0/custom_data_0 = 100
+0:0/0/custom_data_1 = 1
+1:0/0 = 0
+1:0/0/custom_data_0 = 100
+1:0/0/custom_data_1 = 3
+2:0/0 = 0
+2:0/0/custom_data_0 = 100
+2:0/0/custom_data_1 = 4
+3:0/0 = 0
+3:0/0/custom_data_0 = 100
+3:0/0/custom_data_1 = 4
+4:0/0 = 0
+4:0/0/custom_data_0 = 100
+4:0/0/custom_data_1 = 4
+5:0/0 = 0
+5:0/0/custom_data_0 = 100
+5:0/0/custom_data_1 = 1
+6:0/0 = 0
+6:0/0/custom_data_0 = 100
+
+[sub_resource type="TileSet" id="TileSet_db1bt"]
+custom_data_layer_0/name = "MovementCost"
+custom_data_layer_0/type = 2
+custom_data_layer_1/name = "Cover"
+custom_data_layer_1/type = 2
+sources/0 = SubResource("TileSetAtlasSource_nr5ic")
+
+[node name="Main" type="Node2D"]
+
+[node name="EditorObject" type="Node2D" parent="."]
+script = ExtResource("1_bqh2l")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Level"]
+tile_set = SubResource("TileSet_db1bt")
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 134.0
+offset_top = -120.0
+offset_right = 196.0
+offset_bottom = -34.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+offset_top = 1.0
+offset_right = 91.0
+offset_bottom = 107.0
+columns = 3
+script = ExtResource("3_kes3n")
+
+[node name="ItemTexture" type="TextureRect" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("6_5m2tc")
+script = ExtResource("3_alvk2")
+
+[node name="ItemTexture2" type="TextureRect" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_left = 20.0
+offset_right = 36.0
+offset_bottom = 16.0
+texture = ExtResource("2_mq027")
+script = ExtResource("3_alvk2")
+tile_id = 1
+
+[node name="ItemTexture3" type="TextureRect" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_left = 40.0
+offset_right = 56.0
+offset_bottom = 16.0
+texture = ExtResource("3_nkyg2")
+script = ExtResource("3_alvk2")
+tile_id = 2
+
+[node name="ItemTexture4" type="TextureRect" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_top = 20.0
+offset_right = 16.0
+offset_bottom = 36.0
+texture = ExtResource("7_fj5yt")
+script = ExtResource("3_alvk2")
+tile_id = 3
+
+[node name="ItemTexture5" type="TextureRect" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 36.0
+offset_bottom = 36.0
+texture = ExtResource("4_8a0nq")
+script = ExtResource("3_alvk2")
+tile_id = 4
+
+[node name="ItemTexture6" type="TextureRect" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 56.0
+offset_bottom = 36.0
+texture = ExtResource("1_38b5r")
+script = ExtResource("3_alvk2")
+tile_id = 5
+
+[node name="ItemTexture7" type="TextureRect" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_top = 40.0
+offset_right = 16.0
+offset_bottom = 56.0
+texture = ExtResource("5_d1gaq")
+script = ExtResource("3_alvk2")
+tile_id = 6
+
+[connection signal="mouse_entered" from="Panel/GridContainer" to="Panel/GridContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/GridContainer" to="Panel/GridContainer" method="_on_mouse_exited"]
