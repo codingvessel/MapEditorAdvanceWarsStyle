@@ -23,7 +23,7 @@ func _process(delta):
 
 func place_tile():	
 	var mousepos = tile_map.local_to_map(get_global_mouse_position())
-	tile_map.set_cell(0, Vector2i(mousepos.x, mousepos.y),0, Vector2i(Global.current_tile,0))
+	tile_map.set_cell(0, Vector2i(mousepos.x, mousepos.y),0, Global.current_tile_coordinates)
 
 func remove_tile():
 	var mousepos = tile_map.local_to_map(get_global_mouse_position())
