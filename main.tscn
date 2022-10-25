@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfwvhucf26qyw"]
+[gd_scene load_steps=16 format=3 uid="uid://dfwvhucf26qyw"]
 
+[ext_resource type="Script" path="res://Camera2D.gd" id="1_0c5tf"]
 [ext_resource type="Texture2D" uid="uid://dv5eliof626hf" path="res://Assets/PH_Spritesheet.png" id="1_7yrix"]
 [ext_resource type="Texture2D" uid="uid://djtb00ur8lgfx" path="res://Assets/PH_FACTORY.png" id="1_38b5r"]
 [ext_resource type="Script" path="res://EditorObject.gd" id="1_bqh2l"]
@@ -11,33 +12,34 @@
 [ext_resource type="Texture2D" uid="uid://ces6l2xjx5yia" path="res://Assets/PH_WATER.png" id="5_d1gaq"]
 [ext_resource type="Texture2D" uid="uid://x6q4xoyxoyp0" path="res://Assets/PH_GRASS.png" id="6_5m2tc"]
 [ext_resource type="Texture2D" uid="uid://yr6prkef2bpr" path="res://Assets/PH_STREET.png" id="7_fj5yt"]
+[ext_resource type="Texture2D" uid="uid://ds7ichsbpfo5a" path="res://Assets/square.png" id="13_3q6eb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr5ic"]
 texture = ExtResource("1_7yrix")
 0:0/0 = 0
-0:0/0/custom_data_0 = 100
+0:0/0/custom_data_0 = "GRASS"
 0:0/0/custom_data_1 = 1
 1:0/0 = 0
-1:0/0/custom_data_0 = 100
+1:0/0/custom_data_0 = "FOREST"
 1:0/0/custom_data_1 = 3
 2:0/0 = 0
-2:0/0/custom_data_0 = 100
+2:0/0/custom_data_0 = "HILLS"
 2:0/0/custom_data_1 = 4
 3:0/0 = 0
-3:0/0/custom_data_0 = 100
+3:0/0/custom_data_0 = "TOWN"
 3:0/0/custom_data_1 = 4
 4:0/0 = 0
-4:0/0/custom_data_0 = 100
+4:0/0/custom_data_0 = "FACTORY"
 4:0/0/custom_data_1 = 4
 5:0/0 = 0
-5:0/0/custom_data_0 = 100
+5:0/0/custom_data_0 = "WATER"
 5:0/0/custom_data_1 = 1
 6:0/0 = 0
-6:0/0/custom_data_0 = 100
+6:0/0/custom_data_0 = "STREET"
 
 [sub_resource type="TileSet" id="TileSet_db1bt"]
-custom_data_layer_0/name = "MovementCost"
-custom_data_layer_0/type = 2
+custom_data_layer_0/name = "TileType"
+custom_data_layer_0/type = 4
 custom_data_layer_1/name = "Cover"
 custom_data_layer_1/type = 2
 sources/0 = SubResource("TileSetAtlasSource_nr5ic")
@@ -45,7 +47,13 @@ sources/0 = SubResource("TileSetAtlasSource_nr5ic")
 [node name="Main" type="Node2D"]
 
 [node name="EditorObject" type="Node2D" parent="."]
+position = Vector2(200, 125)
 script = ExtResource("1_bqh2l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(200, 125)
+current = true
+script = ExtResource("1_0c5tf")
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -53,16 +61,19 @@ script = ExtResource("1_bqh2l")
 tile_set = SubResource("TileSet_db1bt")
 format = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 134.0
-offset_top = -120.0
-offset_right = 196.0
-offset_bottom = -34.0
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -68.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = 90.0
+grow_horizontal = 0
 
-[node name="GridContainer" type="GridContainer" parent="Panel"]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel"]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 91.0
@@ -70,14 +81,14 @@ offset_bottom = 107.0
 columns = 3
 script = ExtResource("3_kes3n")
 
-[node name="ItemTexture" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
 layout_mode = 2
 offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("6_5m2tc")
 script = ExtResource("3_alvk2")
 
-[node name="ItemTexture2" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture2" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
 layout_mode = 2
 offset_left = 20.0
 offset_right = 36.0
@@ -86,7 +97,7 @@ texture = ExtResource("2_mq027")
 script = ExtResource("3_alvk2")
 tile_atlas_coordinates = Vector2i(1, 0)
 
-[node name="ItemTexture3" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture3" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
 layout_mode = 2
 offset_left = 40.0
 offset_right = 56.0
@@ -95,7 +106,7 @@ texture = ExtResource("3_nkyg2")
 script = ExtResource("3_alvk2")
 tile_atlas_coordinates = Vector2i(2, 0)
 
-[node name="ItemTexture5" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture5" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
 layout_mode = 2
 offset_top = 20.0
 offset_right = 16.0
@@ -104,7 +115,7 @@ texture = ExtResource("4_8a0nq")
 script = ExtResource("3_alvk2")
 tile_atlas_coordinates = Vector2i(3, 0)
 
-[node name="ItemTexture6" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture6" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
 layout_mode = 2
 offset_left = 20.0
 offset_top = 20.0
@@ -114,7 +125,7 @@ texture = ExtResource("1_38b5r")
 script = ExtResource("3_alvk2")
 tile_atlas_coordinates = Vector2i(4, 0)
 
-[node name="ItemTexture7" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture7" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
 layout_mode = 2
 offset_left = 40.0
 offset_top = 20.0
@@ -124,7 +135,7 @@ texture = ExtResource("5_d1gaq")
 script = ExtResource("3_alvk2")
 tile_atlas_coordinates = Vector2i(5, 0)
 
-[node name="ItemTexture4" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture4" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
 layout_mode = 2
 offset_top = 40.0
 offset_right = 16.0
@@ -133,5 +144,12 @@ texture = ExtResource("7_fj5yt")
 script = ExtResource("3_alvk2")
 tile_atlas_coordinates = Vector2i(6, 0)
 
-[connection signal="mouse_entered" from="Panel/GridContainer" to="Panel/GridContainer" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Panel/GridContainer" to="Panel/GridContainer" method="_on_mouse_exited"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.258824, 0.231373, 0.25098, 0.635294)
+scale = Vector2(31, 31)
+z_index = -1
+texture = ExtResource("13_3q6eb")
+centered = false
+
+[connection signal="mouse_entered" from="CanvasLayer/Panel/GridContainer" to="CanvasLayer/Panel/GridContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel/GridContainer" to="CanvasLayer/Panel/GridContainer" method="_on_mouse_exited"]
