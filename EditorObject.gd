@@ -27,4 +27,4 @@ func place_tile():
 
 func remove_tile():
 	var mousepos = tile_map.local_to_map(get_global_mouse_position())
-	tile_map.set_cell(0,  Vector2i(mousepos.x, mousepos.y),0, Vector2i(-1, -1))
+	tile_map.set_cell(0,  Vector2i(mousepos.x, mousepos.y),-1, Vector2i(-1, -1), -1)
