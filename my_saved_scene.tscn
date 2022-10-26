@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://do51rsh8ana4k"]
+
+[ext_resource type="Texture2D" uid="uid://dv5eliof626hf" path="res://Assets/PH_Spritesheet.png" id="1_6jn1x"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr5ic"]
+texture = ExtResource("1_6jn1x")
+0:0/0 = 0
+0:0/0/custom_data_0 = "GRASS"
+0:0/0/custom_data_1 = 1
+1:0/0 = 0
+1:0/0/custom_data_0 = "FOREST"
+1:0/0/custom_data_1 = 3
+2:0/0 = 0
+2:0/0/custom_data_0 = "HILLS"
+2:0/0/custom_data_1 = 4
+3:0/0 = 0
+3:0/0/custom_data_0 = "TOWN"
+3:0/0/custom_data_1 = 4
+4:0/0 = 0
+4:0/0/custom_data_0 = "FACTORY"
+4:0/0/custom_data_1 = 4
+5:0/0 = 0
+5:0/0/custom_data_0 = "WATER"
+5:0/0/custom_data_1 = 1
+6:0/0 = 0
+6:0/0/custom_data_0 = "STREET"
+
+[sub_resource type="TileSet" id="TileSet_db1bt"]
+custom_data_layer_0/name = "TileType"
+custom_data_layer_0/type = 4
+custom_data_layer_1/name = "Cover"
+custom_data_layer_1/type = 2
+sources/0 = SubResource("TileSetAtlasSource_nr5ic")
+
+[node name="Level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_db1bt")
+format = 2
+layer_0/tile_data = PackedInt32Array(262151, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327687, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 327692, 0, 0, 327696, 0, 0, 393233, 0, 0, 458768, 0, 0, 458766, 0, 0, 524301, 0, 0, 524299, 0, 0, 458761, 0, 0, 458760, 0, 0, 458759, 0, 0, 393225, 0, 0, 786444, 0, 0, 917520, 0, 0, 917514, 0, 0, 917522, 0, 0, 917515, 0, 0, 1376273, 0, 0, 1376278, 0, 0, 1376271, 0, 0, 1376280, 0, 0, 1376281, 0, 0)

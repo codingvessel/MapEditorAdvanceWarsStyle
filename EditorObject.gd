@@ -32,8 +32,7 @@ func show_tile_info():
 	if tile_data != null:
 		Global.emit_signal("show_tile_info", tile_data, mouse_position)
 
-func place_tile():	
-	print(mouse_position)
+func place_tile():
 	if mouse_position.x < 0 or mouse_position.x > 30 or mouse_position.y < 0 or mouse_position.y > 30:
 		return
 	tile_map.set_cell(0, Vector2i(mouse_position.x, mouse_position.y),0, Global.current_tile_coordinates)
