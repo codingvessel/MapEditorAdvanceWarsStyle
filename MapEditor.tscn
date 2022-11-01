@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://EditorObject.gd" id="1_j3qco"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_bgth3"]
 [ext_resource type="Texture2D" uid="uid://dv5eliof626hf" path="res://Assets/PH_Spritesheet.png" id="3_vfkjk"]
-[ext_resource type="PackedScene" uid="uid://dj2qjtb2jh76b" path="res://EditorMenu.tscn" id="4_khckp"]
+[ext_resource type="PackedScene" uid="uid://cvfhcvoi3ofw5" path="res://EditorMenu.tscn" id="4_khckp"]
 [ext_resource type="Texture2D" uid="uid://ds7ichsbpfo5a" path="res://Assets/square.png" id="5_t0ftk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr5ic"]
@@ -56,9 +56,8 @@ format = 2
 [node name="EditorMenu" parent="." instance=ExtResource("4_khckp")]
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(0.258824, 0.231373, 0.25098, 0.635294)
+modulate = Color(0.207843, 0.266667, 0, 0.188235)
 scale = Vector2(31, 31)
-z_index = -1
+z_index = -10
 texture = ExtResource("5_t0ftk")
 centered = false
-metadata/_edit_lock_ = true
