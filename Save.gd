@@ -10,7 +10,7 @@ var notification_dialog = $NotificationDialog
 var notification_dialog_label = $NotificationDialog/Label
 
 @onready
-var level = get_node("/root/Main/Level")
+var level = get_node("/root/MapEditor/Level")
 
 @onready
 var tile_map : TileMap = level.get_node("TileMap")
@@ -29,11 +29,11 @@ func _on_line_edit_text_changed(new_text):
 func _on_ok_button_down():
 	save_map()
 	save_dialog.visible = false
-	notification_dialog_label.text = "Saved the Map \n under the name: \n" + file_name
+	notification_dialog_label.text = "Saved the Map \n as: \n" + file_name
 	notification_dialog.visible = true
 	
 func save_map():
-	var format_path = "res://{my_saved_scene}.tscn"
+	var format_path = "res://Maps//{my_saved_scene}.tscn"
 	var actual_path = format_path.format({"my_saved_scene": file_name})
 	
 	tile_map.owner = level

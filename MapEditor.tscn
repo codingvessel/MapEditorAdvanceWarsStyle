@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfwvhucf26qyw"]
+
+[ext_resource type="Script" path="res://EditorObject.gd" id="1_j3qco"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="2_bgth3"]
+[ext_resource type="Texture2D" uid="uid://dv5eliof626hf" path="res://Assets/PH_Spritesheet.png" id="3_vfkjk"]
+[ext_resource type="PackedScene" uid="uid://dj2qjtb2jh76b" path="res://EditorMenu.tscn" id="4_khckp"]
+[ext_resource type="Texture2D" uid="uid://ds7ichsbpfo5a" path="res://Assets/square.png" id="5_t0ftk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr5ic"]
+texture = ExtResource("3_vfkjk")
+0:0/0 = 0
+0:0/0/custom_data_0 = "GRASS"
+0:0/0/custom_data_1 = 1
+1:0/0 = 0
+1:0/0/custom_data_0 = "FOREST"
+1:0/0/custom_data_1 = 3
+2:0/0 = 0
+2:0/0/custom_data_0 = "HILLS"
+2:0/0/custom_data_1 = 4
+3:0/0 = 0
+3:0/0/custom_data_0 = "TOWN"
+3:0/0/custom_data_1 = 4
+4:0/0 = 0
+4:0/0/custom_data_0 = "FACTORY"
+4:0/0/custom_data_1 = 4
+5:0/0 = 0
+5:0/0/custom_data_0 = "WATER"
+5:0/0/custom_data_1 = 1
+6:0/0 = 0
+6:0/0/custom_data_0 = "STREET"
+
+[sub_resource type="TileSet" id="TileSet_db1bt"]
+custom_data_layer_0/name = "TileType"
+custom_data_layer_0/type = 4
+custom_data_layer_1/name = "Cover"
+custom_data_layer_1/type = 2
+sources/0 = SubResource("TileSetAtlasSource_nr5ic")
+
+[node name="MapEditor" type="Node2D"]
+
+[node name="EditorObject" type="Node2D" parent="."]
+position = Vector2(200, 125)
+script = ExtResource("1_j3qco")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(200, 125)
+current = true
+script = ExtResource("2_bgth3")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Level"]
+tile_set = SubResource("TileSet_db1bt")
+format = 2
+
+[node name="EditorMenu" parent="." instance=ExtResource("4_khckp")]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.258824, 0.231373, 0.25098, 0.635294)
+scale = Vector2(31, 31)
+z_index = -1
+texture = ExtResource("5_t0ftk")
+centered = false
+metadata/_edit_lock_ = true

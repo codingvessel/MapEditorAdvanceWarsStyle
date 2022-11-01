@@ -2,7 +2,7 @@ extends Node2D
 
 
 @onready
-var level = get_node("/root/Main/Level")
+var level = get_node("/root/MapEditor/Level")
 
 @onready
 var tile_map : TileMap = level.get_node("TileMap")
