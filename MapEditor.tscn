@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfwvhucf26qyw"]
+[gd_scene load_steps=10 format=3 uid="uid://dfwvhucf26qyw"]
 
 [ext_resource type="Script" path="res://EditorObject.gd" id="1_j3qco"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_bgth3"]
 [ext_resource type="Texture2D" uid="uid://dv5eliof626hf" path="res://Assets/PH_Spritesheet.png" id="3_vfkjk"]
 [ext_resource type="PackedScene" uid="uid://cvfhcvoi3ofw5" path="res://EditorMenu.tscn" id="4_khckp"]
+[ext_resource type="Texture2D" uid="uid://b3ct7q7nl0cn" path="res://Assets/tilemap_spritesheet.png" id="4_l247p"]
 [ext_resource type="Texture2D" uid="uid://ds7ichsbpfo5a" path="res://Assets/square.png" id="5_t0ftk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr5ic"]
@@ -29,12 +30,33 @@ texture = ExtResource("3_vfkjk")
 6:0/0 = 0
 6:0/0/custom_data_0 = "STREET"
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m35dq"]
+texture = ExtResource("4_l247p")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_db1bt"]
 custom_data_layer_0/name = "TileType"
 custom_data_layer_0/type = 4
 custom_data_layer_1/name = "Cover"
 custom_data_layer_1/type = 2
 sources/0 = SubResource("TileSetAtlasSource_nr5ic")
+sources/2 = SubResource("TileSetAtlasSource_m35dq")
 
 [node name="MapEditor" type="Node2D"]
 
@@ -57,6 +79,7 @@ format = 2
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.207843, 0.266667, 0, 0.188235)
+position = Vector2(77, 5)
 scale = Vector2(31, 31)
 z_index = -10
 texture = ExtResource("5_t0ftk")

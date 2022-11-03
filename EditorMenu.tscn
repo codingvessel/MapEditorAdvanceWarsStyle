@@ -173,7 +173,7 @@ offset_right = 123.0
 offset_bottom = 68.0
 
 [node name="Confirm" type="Button" parent="VBoxContainer/Save/SaveDialog/HBoxContainer"]
-custom_minimum_size = Vector2i(58, 0)
+custom_minimum_size = Vector2(58, 0)
 offset_right = 58.0
 offset_bottom = 21.0
 theme_override_font_sizes/font_size = 8
@@ -182,7 +182,7 @@ text = "Confirm
 
 [node name="Cancel" type="Button" parent="VBoxContainer/Save/SaveDialog/HBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2i(54, 0)
+custom_minimum_size = Vector2(54, 0)
 offset_left = 62.0
 offset_right = 116.0
 offset_bottom = 21.0
@@ -247,7 +247,7 @@ offset_right = 219.0
 offset_bottom = 152.0
 
 [node name="ItemList" type="ItemList" parent="VBoxContainer/Load/LoadDialog/VBoxContainer"]
-custom_minimum_size = Vector2i(200, 100)
+custom_minimum_size = Vector2(200, 100)
 offset_right = 208.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 11
@@ -260,7 +260,7 @@ offset_bottom = 124.0
 size_flags_horizontal = 4
 
 [node name="Confirm" type="Button" parent="VBoxContainer/Load/LoadDialog/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2i(70, 0)
+custom_minimum_size = Vector2(70, 0)
 offset_right = 70.0
 offset_bottom = 20.0
 size_flags_vertical = 8
@@ -269,7 +269,7 @@ text = "Confirm
 "
 
 [node name="Cancel" type="Button" parent="VBoxContainer/Load/LoadDialog/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2i(70, 0)
+custom_minimum_size = Vector2(70, 0)
 offset_left = 74.0
 offset_right = 144.0
 offset_bottom = 20.0
