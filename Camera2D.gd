@@ -56,7 +56,7 @@ func _input(event):
 				zoom -= Vector2(0.1,0.1)
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				zoom += Vector2(0.1,0.1)
-			zoom = clamp(zoom, Vector2(0.4, 0.4), Vector2(1.2,1.2))
+			zoom = clamp(zoom, Vector2(0.2, 0.2), Vector2(1.2,1.2))
 	if event is InputEventMouseMotion:
 		if is_panning:
 			global_position -= event.relative

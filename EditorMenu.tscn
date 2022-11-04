@@ -1,18 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvfhcvoi3ofw5"]
+[gd_scene load_steps=15 format=3 uid="uid://cvfhcvoi3ofw5"]
 
 [ext_resource type="Script" path="res://GridContainer.gd" id="1_uvtbs"]
-[ext_resource type="Texture2D" uid="uid://x6q4xoyxoyp0" path="res://Assets/PH_GRASS.png" id="2_jr80f"]
+[ext_resource type="Texture2D" uid="uid://3xu1f1kcw8vc" path="res://Assets/SingleTiles/tile010.png" id="2_gp1ng"]
 [ext_resource type="Script" path="res://ItemTexture.gd" id="3_xcnnl"]
-[ext_resource type="Texture2D" uid="uid://cm6i0apr7irag" path="res://Assets/PH_FOREST.png" id="4_ay134"]
-[ext_resource type="Texture2D" uid="uid://dwn35dw3186va" path="res://Assets/PH_HILL.png" id="5_vinjf"]
-[ext_resource type="Texture2D" uid="uid://b0nobuhucymy5" path="res://Assets/PH_TOWN.png" id="6_nj0gd"]
-[ext_resource type="Texture2D" uid="uid://djtb00ur8lgfx" path="res://Assets/PH_FACTORY.png" id="7_7j2pa"]
-[ext_resource type="Texture2D" uid="uid://ces6l2xjx5yia" path="res://Assets/PH_WATER.png" id="8_r3den"]
-[ext_resource type="Texture2D" uid="uid://yr6prkef2bpr" path="res://Assets/PH_STREET.png" id="9_u67xa"]
+[ext_resource type="Texture2D" uid="uid://bor8evxcmwjhw" path="res://Assets/SingleTiles/tile005.png" id="4_1mpk7"]
+[ext_resource type="Texture2D" uid="uid://bhgybqjyin7ux" path="res://Assets/SingleTiles/tile016.png" id="5_rt6m7"]
+[ext_resource type="Texture2D" uid="uid://b8aj8y8uvcfud" path="res://Assets/SingleTiles/tile000.png" id="6_sdubp"]
+[ext_resource type="Texture2D" uid="uid://ciky3xkgt38b2" path="res://Assets/SingleTiles/singletile_water.png" id="7_5kfir"]
 [ext_resource type="Script" path="res://TileInfoLabel.gd" id="10_wke5m"]
 [ext_resource type="Script" path="res://Save.gd" id="11_ds4ev"]
+[ext_resource type="Script" path="res://Clear.gd" id="12_ev7iw"]
 [ext_resource type="Script" path="res://NotificationDialog.gd" id="12_q4l7o"]
+[ext_resource type="Script" path="res://NewMap.gd" id="13_h3pgo"]
 [ext_resource type="Script" path="res://Load.gd" id="13_xuaib"]
+[ext_resource type="Theme" uid="uid://bxkyq5hrur62h" path="res://Themes/BasicTheme.tres" id="14_4541j"]
 
 [node name="EditorMenu" type="CanvasLayer"]
 
@@ -37,58 +38,41 @@ script = ExtResource("1_uvtbs")
 [node name="ItemTexture" type="TextureRect" parent="Panel/GridContainer"]
 offset_right = 16.0
 offset_bottom = 16.0
-texture = ExtResource("2_jr80f")
+texture = ExtResource("2_gp1ng")
 script = ExtResource("3_xcnnl")
+tile_atlas_coordinates = Vector2i(4, 1)
 
 [node name="ItemTexture2" type="TextureRect" parent="Panel/GridContainer"]
 offset_left = 20.0
 offset_right = 36.0
 offset_bottom = 16.0
-texture = ExtResource("4_ay134")
+texture = ExtResource("4_1mpk7")
 script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(1, 0)
+tile_atlas_coordinates = Vector2i(3, 3)
 
 [node name="ItemTexture3" type="TextureRect" parent="Panel/GridContainer"]
 offset_left = 40.0
 offset_right = 56.0
 offset_bottom = 16.0
-texture = ExtResource("5_vinjf")
+texture = ExtResource("5_rt6m7")
 script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(2, 0)
+tile_atlas_coordinates = Vector2i(4, 2)
 
-[node name="ItemTexture5" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture4" type="TextureRect" parent="Panel/GridContainer"]
 offset_top = 20.0
 offset_right = 16.0
 offset_bottom = 36.0
-texture = ExtResource("6_nj0gd")
+texture = ExtResource("6_sdubp")
 script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(3, 0)
 
-[node name="ItemTexture6" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture5" type="TextureRect" parent="Panel/GridContainer"]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 36.0
 offset_bottom = 36.0
-texture = ExtResource("7_7j2pa")
+texture = ExtResource("7_5kfir")
 script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(4, 0)
-
-[node name="ItemTexture7" type="TextureRect" parent="Panel/GridContainer"]
-offset_left = 40.0
-offset_top = 20.0
-offset_right = 56.0
-offset_bottom = 36.0
-texture = ExtResource("8_r3den")
-script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(5, 0)
-
-[node name="ItemTexture4" type="TextureRect" parent="Panel/GridContainer"]
-offset_top = 40.0
-offset_right = 16.0
-offset_bottom = 56.0
-texture = ExtResource("9_u67xa")
-script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(6, 0)
+tile_atlas_coordinates = Vector2i(0, 3)
 
 [node name="InfoPanel" type="Panel" parent="."]
 anchors_preset = 6
@@ -128,27 +112,27 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("10_wke5m")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="SaveLoad" type="VBoxContainer" parent="."]
 offset_left = 333.0
 offset_top = 180.0
 offset_right = 392.0
 offset_bottom = 224.0
 
-[node name="Save" type="Button" parent="VBoxContainer"]
+[node name="Save" type="Button" parent="SaveLoad"]
 offset_right = 59.0
 offset_bottom = 20.0
 theme_override_font_sizes/font_size = 8
 text = "Save"
 script = ExtResource("11_ds4ev")
 
-[node name="SaveDialog" type="Panel" parent="VBoxContainer/Save"]
+[node name="SaveDialog" type="Panel" parent="SaveLoad/Save"]
 visible = false
 offset_left = -197.0
 offset_top = -86.0
 offset_right = -69.0
 offset_bottom = -16.0
 
-[node name="Label" type="Label" parent="VBoxContainer/Save/SaveDialog"]
+[node name="Label" type="Label" parent="SaveLoad/Save/SaveDialog"]
 offset_left = 23.0
 offset_top = 3.0
 offset_right = 94.0
@@ -156,7 +140,7 @@ offset_bottom = 26.0
 theme_override_font_sizes/font_size = 8
 text = "Enter a map name"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Save/SaveDialog"]
+[node name="LineEdit" type="LineEdit" parent="SaveLoad/Save/SaveDialog"]
 offset_left = 5.0
 offset_top = 22.0
 offset_right = 123.0
@@ -166,13 +150,13 @@ placeholder_text = "ExampleMap"
 context_menu_enabled = false
 caret_blink = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Save/SaveDialog"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveLoad/Save/SaveDialog"]
 offset_left = 6.0
 offset_top = 47.0
 offset_right = 123.0
 offset_bottom = 68.0
 
-[node name="Confirm" type="Button" parent="VBoxContainer/Save/SaveDialog/HBoxContainer"]
+[node name="Confirm" type="Button" parent="SaveLoad/Save/SaveDialog/HBoxContainer"]
 custom_minimum_size = Vector2(58, 0)
 offset_right = 58.0
 offset_bottom = 21.0
@@ -180,7 +164,7 @@ theme_override_font_sizes/font_size = 8
 text = "Confirm
 "
 
-[node name="Cancel" type="Button" parent="VBoxContainer/Save/SaveDialog/HBoxContainer"]
+[node name="Cancel" type="Button" parent="SaveLoad/Save/SaveDialog/HBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(54, 0)
 offset_left = 62.0
@@ -189,7 +173,7 @@ offset_bottom = 21.0
 theme_override_font_sizes/font_size = 8
 text = "Cancel"
 
-[node name="NotificationDialog" type="Panel" parent="VBoxContainer/Save"]
+[node name="NotificationDialog" type="Panel" parent="SaveLoad/Save"]
 visible = false
 offset_left = -197.0
 offset_top = -86.0
@@ -197,7 +181,7 @@ offset_right = -69.0
 offset_bottom = 17.0
 script = ExtResource("12_q4l7o")
 
-[node name="OK" type="Button" parent="VBoxContainer/Save/NotificationDialog"]
+[node name="OK" type="Button" parent="SaveLoad/Save/NotificationDialog"]
 offset_left = 2.0
 offset_top = 76.0
 offset_right = 126.0
@@ -205,7 +189,7 @@ offset_bottom = 100.0
 theme_override_font_sizes/font_size = 11
 text = "OK"
 
-[node name="Label" type="Label" parent="VBoxContainer/Save/NotificationDialog"]
+[node name="Label" type="Label" parent="SaveLoad/Save/NotificationDialog"]
 offset_right = 129.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 11
@@ -214,7 +198,7 @@ under the name:
 "
 horizontal_alignment = 1
 
-[node name="Load" type="Button" parent="VBoxContainer"]
+[node name="Load" type="Button" parent="SaveLoad"]
 offset_top = 24.0
 offset_right = 59.0
 offset_bottom = 44.0
@@ -222,14 +206,14 @@ theme_override_font_sizes/font_size = 8
 text = "Load"
 script = ExtResource("13_xuaib")
 
-[node name="LoadDialog" type="Panel" parent="VBoxContainer/Load"]
+[node name="LoadDialog" type="Panel" parent="SaveLoad/Load"]
 visible = false
 offset_left = -262.0
 offset_top = -181.0
 offset_right = -33.0
 offset_bottom = -25.0
 
-[node name="Label" type="Label" parent="VBoxContainer/Load/LoadDialog"]
+[node name="Label" type="Label" parent="SaveLoad/Load/LoadDialog"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -240,26 +224,26 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 11
 text = "Select a Map"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Load/LoadDialog"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveLoad/Load/LoadDialog"]
 offset_left = 11.0
 offset_top = 27.0
 offset_right = 219.0
 offset_bottom = 152.0
 
-[node name="ItemList" type="ItemList" parent="VBoxContainer/Load/LoadDialog/VBoxContainer"]
+[node name="ItemList" type="ItemList" parent="SaveLoad/Load/LoadDialog/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 offset_right = 208.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 11
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Load/LoadDialog/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveLoad/Load/LoadDialog/VBoxContainer"]
 offset_left = 32.0
 offset_top = 104.0
 offset_right = 176.0
 offset_bottom = 124.0
 size_flags_horizontal = 4
 
-[node name="Confirm" type="Button" parent="VBoxContainer/Load/LoadDialog/VBoxContainer/HBoxContainer"]
+[node name="Confirm" type="Button" parent="SaveLoad/Load/LoadDialog/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 offset_right = 70.0
 offset_bottom = 20.0
@@ -268,7 +252,7 @@ theme_override_font_sizes/font_size = 8
 text = "Confirm
 "
 
-[node name="Cancel" type="Button" parent="VBoxContainer/Load/LoadDialog/VBoxContainer/HBoxContainer"]
+[node name="Cancel" type="Button" parent="SaveLoad/Load/LoadDialog/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 offset_left = 74.0
 offset_right = 144.0
@@ -276,13 +260,105 @@ offset_bottom = 20.0
 theme_override_font_sizes/font_size = 8
 text = "Cancel"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_top = 179.0
+offset_right = 45.0
+offset_bottom = 223.0
+
+[node name="Clear" type="Button" parent="VBoxContainer"]
+offset_right = 45.0
+offset_bottom = 20.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "Clear"
+script = ExtResource("12_ev7iw")
+
+[node name="NewMap" type="Button" parent="VBoxContainer"]
+offset_top = 24.0
+offset_right = 45.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 8
+text = "New Map"
+script = ExtResource("13_h3pgo")
+
+[node name="DimensionsDialog" type="Panel" parent="VBoxContainer/NewMap"]
+visible = false
+offset_left = 136.0
+offset_top = -109.0
+offset_right = 264.0
+offset_bottom = -39.0
+
+[node name="Label" type="Label" parent="VBoxContainer/NewMap/DimensionsDialog"]
+offset_left = 23.0
+offset_top = 3.0
+offset_right = 110.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 8
+text = "Enter map dimensions"
+
+[node name="DimensionHBox" type="HBoxContainer" parent="VBoxContainer/NewMap/DimensionsDialog"]
+offset_left = 12.0
+offset_top = 18.0
+offset_right = 122.0
+offset_bottom = 38.0
+
+[node name="xInput" type="SpinBox" parent="VBoxContainer/NewMap/DimensionsDialog/DimensionHBox"]
+offset_right = 53.0
+offset_bottom = 20.0
+theme = ExtResource("14_4541j")
+min_value = 1.0
+value = 1.0
+alignment = 1
+update_on_text_changed = true
+prefix = "x:"
+
+[node name="yInput" type="SpinBox" parent="VBoxContainer/NewMap/DimensionsDialog/DimensionHBox"]
+offset_left = 57.0
+offset_right = 110.0
+offset_bottom = 20.0
+theme = ExtResource("14_4541j")
+min_value = 1.0
+value = 1.0
+alignment = 1
+update_on_text_changed = true
+prefix = "y:"
+
+[node name="ConfirmHBox" type="HBoxContainer" parent="VBoxContainer/NewMap/DimensionsDialog"]
+offset_left = 6.0
+offset_top = 47.0
+offset_right = 123.0
+offset_bottom = 68.0
+
+[node name="Confirm" type="Button" parent="VBoxContainer/NewMap/DimensionsDialog/ConfirmHBox"]
+custom_minimum_size = Vector2(58, 0)
+offset_right = 58.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 8
+text = "Confirm
+"
+
+[node name="Cancel" type="Button" parent="VBoxContainer/NewMap/DimensionsDialog/ConfirmHBox"]
+clip_contents = true
+custom_minimum_size = Vector2(54, 0)
+offset_left = 62.0
+offset_right = 116.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 8
+text = "Cancel"
+
 [connection signal="mouse_entered" from="Panel/GridContainer" to="Panel/GridContainer" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/GridContainer" to="Panel/GridContainer" method="_on_mouse_exited"]
-[connection signal="button_down" from="VBoxContainer/Save" to="VBoxContainer/Save" method="_on_button_down"]
-[connection signal="text_changed" from="VBoxContainer/Save/SaveDialog/LineEdit" to="VBoxContainer/Save" method="_on_line_edit_text_changed"]
-[connection signal="button_down" from="VBoxContainer/Save/SaveDialog/HBoxContainer/Confirm" to="VBoxContainer/Save" method="_on_ok_button_down"]
-[connection signal="button_down" from="VBoxContainer/Save/SaveDialog/HBoxContainer/Cancel" to="VBoxContainer/Save" method="_on_cancel_button_down"]
-[connection signal="button_down" from="VBoxContainer/Save/NotificationDialog/OK" to="VBoxContainer/Save/NotificationDialog" method="_on_ok_button_down"]
-[connection signal="button_down" from="VBoxContainer/Load" to="VBoxContainer/Load" method="_on_button_down"]
-[connection signal="button_down" from="VBoxContainer/Load/LoadDialog/VBoxContainer/HBoxContainer/Confirm" to="VBoxContainer/Load" method="_on_confirm_button_down"]
-[connection signal="button_down" from="VBoxContainer/Load/LoadDialog/VBoxContainer/HBoxContainer/Cancel" to="VBoxContainer/Load" method="_on_cancel_button_down"]
+[connection signal="button_down" from="SaveLoad/Save" to="SaveLoad/Save" method="_on_button_down"]
+[connection signal="text_changed" from="SaveLoad/Save/SaveDialog/LineEdit" to="SaveLoad/Save" method="_on_line_edit_text_changed"]
+[connection signal="button_down" from="SaveLoad/Save/SaveDialog/HBoxContainer/Confirm" to="SaveLoad/Save" method="_on_ok_button_down"]
+[connection signal="button_down" from="SaveLoad/Save/SaveDialog/HBoxContainer/Cancel" to="SaveLoad/Save" method="_on_cancel_button_down"]
+[connection signal="button_down" from="SaveLoad/Save/NotificationDialog/OK" to="SaveLoad/Save/NotificationDialog" method="_on_ok_button_down"]
+[connection signal="button_down" from="SaveLoad/Load" to="SaveLoad/Load" method="_on_button_down"]
+[connection signal="button_down" from="SaveLoad/Load/LoadDialog/VBoxContainer/HBoxContainer/Confirm" to="SaveLoad/Load" method="_on_confirm_button_down"]
+[connection signal="button_down" from="SaveLoad/Load/LoadDialog/VBoxContainer/HBoxContainer/Cancel" to="SaveLoad/Load" method="_on_cancel_button_down"]
+[connection signal="button_down" from="VBoxContainer/Clear" to="VBoxContainer/Clear" method="_on_button_down"]
+[connection signal="button_down" from="VBoxContainer/NewMap" to="VBoxContainer/NewMap" method="_on_button_down"]
+[connection signal="value_changed" from="VBoxContainer/NewMap/DimensionsDialog/DimensionHBox/xInput" to="VBoxContainer/NewMap" method="_on_x_input_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/NewMap/DimensionsDialog/DimensionHBox/yInput" to="VBoxContainer/NewMap" method="_on_y_input_value_changed"]
+[connection signal="button_down" from="VBoxContainer/NewMap/DimensionsDialog/ConfirmHBox/Confirm" to="VBoxContainer/NewMap" method="_on_confirm_button_down"]
+[connection signal="button_down" from="VBoxContainer/NewMap/DimensionsDialog/ConfirmHBox/Cancel" to="VBoxContainer/NewMap" method="_on_cancel_button_down"]
