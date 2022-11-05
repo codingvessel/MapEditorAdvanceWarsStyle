@@ -1,19 +1,32 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvfhcvoi3ofw5"]
+[gd_scene load_steps=28 format=3 uid="uid://biwkqq0hd1rlb"]
 
 [ext_resource type="Script" path="res://GridContainer.gd" id="1_uvtbs"]
 [ext_resource type="Texture2D" uid="uid://3xu1f1kcw8vc" path="res://Assets/SingleTiles/tile010.png" id="2_gp1ng"]
-[ext_resource type="Script" path="res://ItemTexture.gd" id="3_xcnnl"]
+[ext_resource type="Script" path="res://TileTexture.gd" id="3_xcnnl"]
 [ext_resource type="Texture2D" uid="uid://bor8evxcmwjhw" path="res://Assets/SingleTiles/tile005.png" id="4_1mpk7"]
+[ext_resource type="Script" path="res://ItemTexture.gd" id="5_5wbev"]
 [ext_resource type="Texture2D" uid="uid://bhgybqjyin7ux" path="res://Assets/SingleTiles/tile016.png" id="5_rt6m7"]
+[ext_resource type="Texture2D" uid="uid://co8mxiiknamcy" path="res://Assets/SingleTiles/tile001.png" id="6_copvf"]
 [ext_resource type="Texture2D" uid="uid://b8aj8y8uvcfud" path="res://Assets/SingleTiles/tile000.png" id="6_sdubp"]
 [ext_resource type="Texture2D" uid="uid://ciky3xkgt38b2" path="res://Assets/SingleTiles/singletile_water.png" id="7_5kfir"]
+[ext_resource type="Texture2D" uid="uid://d13q88h3nfegm" path="res://Assets/SingleTiles/tile002.png" id="7_xedqi"]
+[ext_resource type="Texture2D" uid="uid://cuvr12s37kvl1" path="res://Assets/SingleTiles/tile003.png" id="8_h7wlr"]
+[ext_resource type="Texture2D" uid="uid://ddm5juwoqvwah" path="res://Assets/SingleTiles/tile004.png" id="9_6rsh0"]
+[ext_resource type="Texture2D" uid="uid://b6akdlpusknnj" path="res://Assets/SingleTiles/tile006.png" id="10_0cqin"]
 [ext_resource type="Script" path="res://TileInfoLabel.gd" id="10_wke5m"]
+[ext_resource type="Texture2D" uid="uid://b8x8puodqspj5" path="res://Assets/SingleTiles/tile007.png" id="11_7sm1s"]
 [ext_resource type="Script" path="res://Save.gd" id="11_ds4ev"]
+[ext_resource type="Texture2D" uid="uid://bgid8q1hvvia4" path="res://Assets/SingleTiles/tile008.png" id="12_8powf"]
 [ext_resource type="Script" path="res://Clear.gd" id="12_ev7iw"]
 [ext_resource type="Script" path="res://NotificationDialog.gd" id="12_q4l7o"]
 [ext_resource type="Script" path="res://NewMap.gd" id="13_h3pgo"]
+[ext_resource type="Texture2D" uid="uid://b0rlynbb75tfl" path="res://Assets/SingleTiles/tile009.png" id="13_t2xyk"]
 [ext_resource type="Script" path="res://Load.gd" id="13_xuaib"]
 [ext_resource type="Theme" uid="uid://bxkyq5hrur62h" path="res://Themes/BasicTheme.tres" id="14_4541j"]
+[ext_resource type="Texture2D" uid="uid://j2l4m77fhywk" path="res://Assets/SingleTiles/tile012.png" id="14_hdnsb"]
+[ext_resource type="Texture2D" uid="uid://c6k73af8yohl4" path="res://Assets/SingleTiles/tile013.png" id="15_64asm"]
+[ext_resource type="Texture2D" uid="uid://c0aeiqvddkh81" path="res://Assets/SingleTiles/tile014.png" id="16_3yvmy"]
+[ext_resource type="Texture2D" uid="uid://ds56yrihyf2g4" path="res://Assets/SingleTiles/tile015.png" id="17_qab5v"]
 
 [node name="EditorMenu" type="CanvasLayer"]
 
@@ -35,44 +48,168 @@ offset_bottom = 81.0
 columns = 3
 script = ExtResource("1_uvtbs")
 
-[node name="ItemTexture" type="TextureRect" parent="Panel/GridContainer"]
+[node name="TileTexture" type="TextureRect" parent="Panel/GridContainer"]
 offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("2_gp1ng")
 script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(4, 1)
 
-[node name="ItemTexture2" type="TextureRect" parent="Panel/GridContainer"]
+[node name="SubMenuTiles" type="Panel" parent="Panel/GridContainer/TileTexture"]
+visible = false
+offset_left = -128.0
+offset_top = -2.0
+offset_right = -4.0
+offset_bottom = 84.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/GridContainer/TileTexture/SubMenuTiles"]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 123.0
+offset_bottom = 86.0
+columns = 5
+
+[node name="ItemTexture" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("6_sdubp")
+script = ExtResource("5_5wbev")
+tile_type = 1
+
+[node name="ItemTexture2" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
 offset_left = 20.0
 offset_right = 36.0
 offset_bottom = 16.0
-texture = ExtResource("4_1mpk7")
-script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(3, 3)
+texture = ExtResource("6_copvf")
+script = ExtResource("5_5wbev")
+tile_type = 2
 
-[node name="ItemTexture3" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture3" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
 offset_left = 40.0
 offset_right = 56.0
 offset_bottom = 16.0
-texture = ExtResource("5_rt6m7")
-script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(4, 2)
+texture = ExtResource("7_xedqi")
+script = ExtResource("5_5wbev")
+tile_type = 3
 
-[node name="ItemTexture4" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture4" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 60.0
+offset_right = 76.0
+offset_bottom = 16.0
+texture = ExtResource("8_h7wlr")
+script = ExtResource("5_5wbev")
+tile_type = 4
+
+[node name="ItemTexture5" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 80.0
+offset_right = 96.0
+offset_bottom = 16.0
+texture = ExtResource("9_6rsh0")
+script = ExtResource("5_5wbev")
+tile_type = 5
+
+[node name="ItemTexture6" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
 offset_top = 20.0
 offset_right = 16.0
 offset_bottom = 36.0
-texture = ExtResource("6_sdubp")
-script = ExtResource("3_xcnnl")
+texture = ExtResource("10_0cqin")
+script = ExtResource("5_5wbev")
+tile_type = 6
 
-[node name="ItemTexture5" type="TextureRect" parent="Panel/GridContainer"]
+[node name="ItemTexture7" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 36.0
 offset_bottom = 36.0
+texture = ExtResource("11_7sm1s")
+script = ExtResource("5_5wbev")
+tile_type = 7
+
+[node name="ItemTexture8" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 56.0
+offset_bottom = 36.0
+texture = ExtResource("12_8powf")
+script = ExtResource("5_5wbev")
+tile_type = 8
+
+[node name="ItemTexture9" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 60.0
+offset_top = 20.0
+offset_right = 76.0
+offset_bottom = 36.0
+texture = ExtResource("13_t2xyk")
+script = ExtResource("5_5wbev")
+tile_type = 9
+
+[node name="ItemTexture10" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 80.0
+offset_top = 20.0
+offset_right = 96.0
+offset_bottom = 36.0
+texture = ExtResource("2_gp1ng")
+script = ExtResource("5_5wbev")
+
+[node name="ItemTexture11" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_top = 40.0
+offset_right = 16.0
+offset_bottom = 56.0
+texture = ExtResource("14_hdnsb")
+script = ExtResource("5_5wbev")
+tile_type = 10
+
+[node name="ItemTexture12" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 36.0
+offset_bottom = 56.0
+texture = ExtResource("15_64asm")
+script = ExtResource("5_5wbev")
+tile_type = 11
+
+[node name="ItemTexture13" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 56.0
+offset_bottom = 56.0
+texture = ExtResource("16_3yvmy")
+script = ExtResource("5_5wbev")
+tile_type = 12
+
+[node name="ItemTexture14" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 60.0
+offset_top = 40.0
+offset_right = 76.0
+offset_bottom = 56.0
+texture = ExtResource("17_qab5v")
+script = ExtResource("5_5wbev")
+tile_type = 13
+
+[node name="ItemTexture15" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 56.0
+texture = ExtResource("5_rt6m7")
+script = ExtResource("5_5wbev")
+tile_type = 15
+
+[node name="ItemTexture16" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_top = 60.0
+offset_right = 16.0
+offset_bottom = 76.0
 texture = ExtResource("7_5kfir")
-script = ExtResource("3_xcnnl")
-tile_atlas_coordinates = Vector2i(0, 3)
+script = ExtResource("5_5wbev")
+tile_type = 16
+
+[node name="ItemTexture17" type="TextureRect" parent="Panel/GridContainer/TileTexture/SubMenuTiles/GridContainer"]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 36.0
+offset_bottom = 76.0
+texture = ExtResource("4_1mpk7")
+script = ExtResource("5_5wbev")
+tile_type = 14
 
 [node name="InfoPanel" type="Panel" parent="."]
 anchors_preset = 6
@@ -348,6 +485,7 @@ text = "Cancel"
 
 [connection signal="mouse_entered" from="Panel/GridContainer" to="Panel/GridContainer" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/GridContainer" to="Panel/GridContainer" method="_on_mouse_exited"]
+[connection signal="gui_input" from="Panel/GridContainer/TileTexture" to="Panel/GridContainer/TileTexture" method="_on_gui_input"]
 [connection signal="button_down" from="SaveLoad/Save" to="SaveLoad/Save" method="_on_button_down"]
 [connection signal="text_changed" from="SaveLoad/Save/SaveDialog/LineEdit" to="SaveLoad/Save" method="_on_line_edit_text_changed"]
 [connection signal="button_down" from="SaveLoad/Save/SaveDialog/HBoxContainer/Confirm" to="SaveLoad/Save" method="_on_ok_button_down"]

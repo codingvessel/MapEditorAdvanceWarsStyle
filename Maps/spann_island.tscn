@@ -1,40 +1,154 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7l6agkso26ds"]
+[gd_scene load_steps=8 format=3 uid="uid://c43e01hkplh2t"]
 
-[ext_resource type="Texture2D" uid="uid://dv5eliof626hf" path="res://Assets/PH_Spritesheet.png" id="1_yck11"]
+[ext_resource type="Script" path="res://Level.gd" id="1_vgfj8"]
+[ext_resource type="Texture2D" uid="uid://b3ct7q7nl0cn" path="res://Assets/tilemap_spritesheet.png" id="2_hlx8e"]
+[ext_resource type="Texture2D" uid="uid://dk57tmtnlikrh" path="res://Assets/factory.png" id="3_v2f2a"]
+[ext_resource type="Texture2D" uid="uid://c8w3njomissyw" path="res://Assets/headquarter.png" id="4_tvcgn"]
+[ext_resource type="Texture2D" uid="uid://jsbyov86dj7s" path="res://Assets/town.png" id="5_6lvq7"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr5ic"]
-texture = ExtResource("1_yck11")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m35dq"]
+texture = ExtResource("2_hlx8e")
 0:0/0 = 0
-0:0/0/custom_data_0 = "GRASS"
-0:0/0/custom_data_1 = 1
+0:0/0/custom_data_0 = "STREET"
 1:0/0 = 0
-1:0/0/custom_data_0 = "FOREST"
-1:0/0/custom_data_1 = 3
+1:0/0/custom_data_0 = "STREET"
 2:0/0 = 0
-2:0/0/custom_data_0 = "HILLS"
-2:0/0/custom_data_1 = 4
+2:0/0/custom_data_0 = "STREET"
 3:0/0 = 0
-3:0/0/custom_data_0 = "TOWN"
-3:0/0/custom_data_1 = 4
+3:0/0/custom_data_0 = "STREET"
 4:0/0 = 0
-4:0/0/custom_data_0 = "FACTORY"
-4:0/0/custom_data_1 = 4
+4:0/0/custom_data_0 = "STREET"
 5:0/0 = 0
-5:0/0/custom_data_0 = "WATER"
-5:0/0/custom_data_1 = 1
-6:0/0 = 0
-6:0/0/custom_data_0 = "STREET"
+0:1/0 = 0
+0:1/0/custom_data_0 = "STREET"
+1:1/0 = 0
+1:1/0/custom_data_0 = "STREET"
+2:1/0 = 0
+2:1/0/custom_data_0 = "STREET"
+3:1/0 = 0
+3:1/0/custom_data_0 = "STREET"
+4:1/0 = 0
+4:1/0/custom_data_0 = "GRASS"
+0:2/0 = 0
+0:2/0/custom_data_0 = "STREET"
+1:2/0 = 0
+1:2/0/custom_data_0 = "STREET"
+2:2/0 = 0
+2:2/0/custom_data_0 = "STREET"
+3:2/0 = 0
+3:2/0/custom_data_0 = "STREET"
+4:2/0 = 0
+4:2/0/custom_data_0 = "HILLS"
+5:1/0 = 0
+0:3/animation_columns = 3
+0:3/animation_frame_0/duration = 1.0
+0:3/animation_frame_1/duration = 1.0
+0:3/animation_frame_2/duration = 1.0
+0:3/0 = 0
+0:3/0/custom_data_0 = "WATER"
+3:3/0 = 0
+3:3/0/custom_data_0 = "FOREST"
 
 [sub_resource type="TileSet" id="TileSet_db1bt"]
 custom_data_layer_0/name = "TileType"
 custom_data_layer_0/type = 4
 custom_data_layer_1/name = "Cover"
 custom_data_layer_1/type = 2
-sources/0 = SubResource("TileSetAtlasSource_nr5ic")
+sources/0 = SubResource("TileSetAtlasSource_m35dq")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_vgfj8")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_db1bt")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 327680, 0, 1, 327680, 0, 2, 327680, 0, 3, 327680, 0, 4, 327680, 0, 5, 327680, 0, 6, 327680, 0, 7, 327680, 0, 8, 327680, 0, 9, 327680, 0, 10, 327680, 0, 11, 327680, 0, 12, 327680, 0, 13, 327680, 0, 14, 327680, 0, 65536, 327680, 0, 131072, 327680, 0, 196608, 327680, 0, 262144, 327680, 0, 327680, 327680, 0, 393216, 327680, 0, 458752, 327680, 0, 458753, 327680, 0, 524289, 327680, 0, 524288, 327680, 0, 589824, 327680, 0, 589825, 327680, 0, 589826, 327680, 0, 589827, 327680, 0, 589828, 327680, 0, 589829, 327680, 0, 589830, 327680, 0, 524290, 327680, 0, 524291, 327680, 0, 524292, 131072, 0, 524293, 196608, 0, 589831, 327680, 0, 589832, 327680, 0, 589833, 327680, 0, 589834, 327680, 0, 589835, 327680, 0, 589836, 327680, 0, 589837, 327680, 0, 589838, 327680, 0, 65550, 327680, 0, 131086, 327680, 0, 196622, 327680, 0, 262158, 327680, 0, 327694, 327680, 0, 393230, 327680, 0, 458766, 327680, 0, 524302, 327680, 0, 65538, 0, 0, 131074, 0, 0, 131073, 0, 0, 262145, 0, 0, 262146, 0, 0, 196609, 196608, 0, 196610, 196608, 0, 327681, 262144, 0, 393217, 262144, 0, 458754, 262144, 0, 458755, 262144, 0, 393218, 196608, 0, 327682, 393216, 0, 327683, 393216, 0, 262147, 393216, 0, 196611, 393216, 0, 196612, 393216, 0, 131076, 393216, 0, 65540, 393216, 0, 65539, 65536, 0, 131075, 65536, 0, 65537, 327680, 0, 262148, 0, 0, 327684, 196608, 0, 393219, 0, 0, 393220, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 524294, 131072, 0, 524296, 196608, 0, 524295, 65536, 0, 393223, 65536, 0, 327687, 65536, 0, 393224, 65536, 0, 131077, 65536, 0, 131078, 327680, 0, 196613, 327680, 0, 262149, 327680, 0, 327685, 327680, 0, 327686, 327680, 0, 262150, 327680, 0, 196614, 327680, 0, 262151, 327680, 0, 196615, 327680, 0, 131079, 0, 0, 65541, 393216, 0, 65542, 393216, 0, 65543, 393216, 0, 65544, 393216, 0, 131080, 393216, 0, 196616, 393216, 0, 262152, 393216, 0, 327688, 393216, 0, 327689, 393216, 0, 262153, 196608, 0, 131081, 196608, 0, 65546, 65536, 0, 65547, 262144, 0, 131084, 196608, 0, 65549, 262144, 0, 131085, 262144, 0, 196621, 262144, 0, 196620, 393216, 0, 65548, 0, 0, 65545, 0, 0, 131082, 0, 0, 131083, 0, 0, 196617, 0, 0, 196619, 0, 0, 196618, 131072, 0, 262154, 131072, 0, 262155, 196608, 0, 327690, 393216, 0, 327691, 393216, 0, 327692, 393216, 0, 262156, 393216, 0, 262157, 327680, 0, 327693, 196608, 0, 393221, 0, 0, 393222, 0, 0, 458759, 0, 0, 458760, 0, 0, 393225, 0, 0, 458761, 0, 0, 524297, 0, 0, 393226, 327680, 0, 393227, 327680, 0, 458763, 327680, 0, 458762, 327680, 0, 524299, 0, 0, 524298, 393216, 0, 458764, 0, 0, 458765, 0, 0, 524300, 196608, 0, 524301, 196608, 0, 393228, 393216, 0, 393229, 327680, 0)
+layer_0/tile_data = PackedInt32Array(0, 0, 3, 65536, 0, 3, 131072, 0, 3, 196608, 0, 3, 262144, 0, 3, 327680, 0, 3, 393216, 0, 3, 458752, 0, 3, 524288, 0, 3, 589824, 0, 3, 1, 0, 3, 65537, 0, 3, 131073, 262144, 1, 196609, 262144, 1, 262145, 262144, 1, 327681, 262144, 1, 393217, 262144, 1, 458753, 0, 3, 524289, 0, 3, 589825, 0, 3, 2, 0, 3, 65538, 262144, 1, 131074, 262144, 1, 196610, 262144, 1, 262146, 262144, 1, 327682, 65536, 0, 393218, 262144, 1, 458754, 262144, 1, 524290, 0, 3, 589826, 0, 3, 3, 0, 3, 65539, 196608, 3, 131075, 196608, 3, 196611, 0, 1, 262147, 0, 0, 327683, 65536, 2, 393219, 262144, 1, 458755, 262144, 1, 524291, 0, 3, 589827, 0, 3, 4, 0, 3, 65540, 0, 1, 131076, 0, 0, 196612, 65536, 2, 262148, 262144, 1, 327684, 262144, 1, 393220, 262144, 1, 458756, 262144, 1, 524292, 262144, 2, 589828, 0, 3, 5, 0, 3, 65541, 65536, 0, 131077, 196608, 3, 196613, 0, 3, 262149, 0, 3, 327685, 0, 3, 393221, 262144, 1, 458757, 262144, 1, 524293, 262144, 1, 589829, 0, 3, 6, 0, 3, 65542, 65536, 0, 131078, 0, 3, 196614, 0, 3, 262150, 0, 3, 327686, 0, 3, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 2, 589830, 0, 3, 7, 0, 3, 65543, 65536, 0, 131079, 262144, 1, 196615, 0, 3, 262151, 0, 3, 327687, 196608, 3, 393223, 196608, 3, 458759, 262144, 1, 524295, 196608, 3, 589831, 0, 3, 8, 0, 3, 65544, 65536, 1, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 327688, 0, 2, 393224, 196608, 3, 458760, 262144, 1, 524296, 262144, 1, 589832, 0, 3, 9, 0, 3, 65545, 262144, 1, 131081, 262144, 1, 196617, 262144, 1, 262153, 262144, 1, 327689, 65536, 0, 393225, 262144, 1, 458761, 262144, 1, 524297, 262144, 1, 589833, 0, 3, 10, 0, 3, 65546, 196608, 3, 131082, 262144, 1, 196618, 262144, 2, 262154, 262144, 2, 327690, 65536, 0, 393226, 0, 3, 458762, 0, 3, 524298, 196608, 0, 589834, 0, 3, 11, 0, 3, 65547, 262144, 1, 131083, 262144, 1, 196619, 262144, 1, 262155, 262144, 1, 327691, 65536, 0, 393227, 0, 3, 458763, 0, 3, 524299, 262144, 1, 589835, 0, 3, 12, 0, 3, 65548, 262144, 1, 131084, 262144, 1, 196620, 0, 0, 262156, 0, 0, 327692, 196608, 1, 393228, 262144, 0, 458764, 262144, 1, 524300, 262144, 1, 589836, 0, 3, 13, 0, 3, 65549, 262144, 1, 131085, 262144, 1, 196621, 262144, 1, 262157, 0, 3, 327693, 262144, 1, 393229, 0, 3, 458765, 262144, 1, 524301, 262144, 1, 589837, 0, 3, 14, 0, 3, 65550, 0, 3, 131086, 0, 3, 196622, 0, 3, 262158, 0, 3, 327694, 0, 3, 393230, 0, 3, 458766, 0, 3, 524302, 0, 3, 589838, 0, 3)
+
+[node name="Factory3" type="Sprite2D" parent="."]
+position = Vector2(40, 117)
+z_index = 1
+texture = ExtResource("3_v2f2a")
+
+[node name="Factory" type="Sprite2D" parent="."]
+position = Vector2(24, 87)
+texture = ExtResource("3_v2f2a")
+
+[node name="Factory2" type="Sprite2D" parent="."]
+position = Vector2(24, 103)
+texture = ExtResource("3_v2f2a")
+
+[node name="Headquarter" type="Sprite2D" parent="."]
+position = Vector2(40, 98)
+texture = ExtResource("4_tvcgn")
+
+[node name="Factory4" type="Sprite2D" parent="."]
+position = Vector2(56, 117)
+texture = ExtResource("3_v2f2a")
+
+[node name="Factory6" type="Sprite2D" parent="."]
+position = Vector2(184, 22)
+texture = ExtResource("3_v2f2a")
+
+[node name="Factory7" type="Sprite2D" parent="."]
+position = Vector2(216, 21)
+texture = ExtResource("3_v2f2a")
+
+[node name="Factory8" type="Sprite2D" parent="."]
+position = Vector2(216, 37)
+texture = ExtResource("3_v2f2a")
+
+[node name="Factory9" type="Sprite2D" parent="."]
+position = Vector2(216, 54)
+texture = ExtResource("3_v2f2a")
+
+[node name="Town" type="Sprite2D" parent="."]
+position = Vector2(24, 56)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town2" type="Sprite2D" parent="."]
+position = Vector2(40, 56)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town3" type="Sprite2D" parent="."]
+position = Vector2(72, 88)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town4" type="Sprite2D" parent="."]
+position = Vector2(87, 136)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town5" type="Sprite2D" parent="."]
+position = Vector2(137, 136)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town6" type="Sprite2D" parent="."]
+position = Vector2(201, 136)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town7" type="Sprite2D" parent="."]
+position = Vector2(217, 136)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town8" type="Sprite2D" parent="."]
+position = Vector2(217, 87)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town9" type="Sprite2D" parent="."]
+position = Vector2(184, 71)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town10" type="Sprite2D" parent="."]
+position = Vector2(152, 70)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town11" type="Sprite2D" parent="."]
+position = Vector2(152, 39)
+texture = ExtResource("5_6lvq7")
+
+[node name="Town12" type="Sprite2D" parent="."]
+position = Vector2(152, 39)
+texture = ExtResource("5_6lvq7")
+
+[node name="Headquarter2" type="Sprite2D" parent="."]
+position = Vector2(200, 35)
+texture = ExtResource("4_tvcgn")
