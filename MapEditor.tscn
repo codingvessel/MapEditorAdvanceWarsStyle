@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://EditorObject.gd" id="1_j3qco"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_bgth3"]
 [ext_resource type="Script" path="res://Level.gd" id="3_prgsa"]
-[ext_resource type="PackedScene" uid="uid://biwkqq0hd1rlb" path="res://EditorMenu.tscn" id="4_khckp"]
+[ext_resource type="PackedScene" uid="uid://bjacfn4gxgll1" path="res://EditorMenu.tscn" id="4_khckp"]
 [ext_resource type="Texture2D" uid="uid://b3ct7q7nl0cn" path="res://Assets/tilemap_spritesheet.png" id="4_l247p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m35dq"]

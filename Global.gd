@@ -10,6 +10,13 @@ var current_tile_coordinates = Vector2i(0,3)
 var can_place = false
 
 
+enum CursorModes {
+	TILE,
+	BUILDING
+}
+
+var place_mode = CursorModes.TILE
+
 enum TileType {
 	GRASS,
 	STREET,

@@ -23,6 +23,7 @@ func item_clicked(event):
 		if event.is_action_pressed("left_click"):
 			submenu_tiles.visible = !submenu_tiles.visible
 			submenu_buildings.visible = false
+			Global.place_mode = Global.CursorModes.TILE
 
 func _on_selected_tile_changed(new_selected_tile):
 	submenu_tiles.visible = false

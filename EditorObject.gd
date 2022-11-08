@@ -28,10 +28,16 @@ func _process(delta):
 
 	show_tile_info()
 	if Global.can_place:
-		if mouse_action_place_down:
-			place_tile(Global.current_tile_coordinates)
-		if mouse_action_remove_down:
-			remove_tile()
+		if Global.place_mode == Global.CursorModes.TILE:
+			if mouse_action_place_down:
+				place_tile(Global.current_tile_coordinates)
+			if mouse_action_remove_down:
+				remove_tile()
+		elif Global.place_mode == Global.CursorModes.TILE:
+			if mouse_action_place_down:
+				place_tile(Global.current_tile_coordinates)
+			if mouse_action_remove_down:
+				remove_tile()
 	
 func _unhandled_input(event):
 	
