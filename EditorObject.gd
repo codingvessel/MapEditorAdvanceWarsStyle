@@ -29,7 +29,7 @@ func _process(delta):
 	show_tile_info()
 	if Global.can_place:
 		if mouse_action_place_down:
-			place_tile()
+			place_tile(Global.current_tile_coordinates)
 		if mouse_action_remove_down:
 			remove_tile()
 	
@@ -56,14 +56,13 @@ func show_tile_info():
 	if tile_data != null:
 		Global.emit_signal("show_tile_info", tile_data, tiled_mouse_position)
 
-func place_tile():
+func place_tile(atlas_coords:Vector2i):
 	if tiled_mouse_position.x < 0 or tiled_mouse_position.x >= width or tiled_mouse_position.y < 0 or tiled_mouse_position.y >= height:
 		return
-	tile_map.set_cell(0, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),0, Global.current_tile_coordinates)
+	tile_map.set_cell(0, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),0, atlas_coords)
 
 func remove_tile():
-	Global.current_tile_coordinates = Vector2i(0,3)
-	place_tile()
+	place_tile(Global.tile_to_atlas_coordinates.get(Global.TileType.WATER))
 
 func _on_map_changed(new_level):
 	level.queue_free()
