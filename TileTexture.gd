@@ -3,6 +3,9 @@ extends TextureRect
 @onready
 var submenu_tiles = $SubMenuTiles
 
+@onready
+var submenu_buildings = $"../BuildingTexture/SubMenuBuildings"
+
 @export
 var tile_type = Global.TileType.GRASS
 
@@ -19,6 +22,7 @@ func item_clicked(event):
 	if event is InputEvent:
 		if event.is_action_pressed("left_click"):
 			submenu_tiles.visible = !submenu_tiles.visible
+			submenu_buildings.visible = false
 
 func _on_selected_tile_changed(new_selected_tile):
 	submenu_tiles.visible = false

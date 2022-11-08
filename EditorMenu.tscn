@@ -68,6 +68,7 @@ offset_right = -4.0
 offset_bottom = 84.0
 
 [node name="GridContainer" type="GridContainer" parent="Panel/GridContainer/TileTexture/SubMenuTiles"]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
@@ -247,18 +248,17 @@ script = ExtResource("22_jha35")
 [node name="SubMenuBuildings" type="Panel" parent="Panel/GridContainer/BuildingTexture"]
 visible = false
 layout_mode = 1
-offset_left = -90.0
+offset_left = -89.0
 offset_top = -2.0
-offset_right = -25.0
+offset_right = -24.0
 offset_bottom = 84.0
-mouse_filter = 2
 
 [node name="GridContainer" type="GridContainer" parent="Panel/GridContainer/BuildingTexture/SubMenuBuildings"]
 layout_mode = 1
 offset_left = 1.0
 offset_top = 2.0
-offset_right = 123.0
-offset_bottom = 86.0
+offset_right = 64.0
+offset_bottom = 84.0
 columns = 5
 
 [node name="InfoPanel" type="Panel" parent="."]

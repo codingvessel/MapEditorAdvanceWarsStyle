@@ -1,7 +1,6 @@
 extends GridContainer
 
 
-
 func _on_mouse_entered():
 	Global.can_place = false
 
