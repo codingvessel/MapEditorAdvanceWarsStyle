@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bjacfn4gxgll1"]
+[gd_scene load_steps=34 format=3 uid="uid://bjacfn4gxgll1"]
 
 [ext_resource type="Script" path="res://GridContainer.gd" id="1_uvtbs"]
 [ext_resource type="Texture2D" uid="uid://3xu1f1kcw8vc" path="res://Assets/SingleTiles/tile010.png" id="2_gp1ng"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" path="res://BuildingTexture.gd" id="22_jha35"]
 [ext_resource type="Script" path="res://TownItem.gd" id="23_ioxan"]
 [ext_resource type="Texture2D" uid="uid://dk57tmtnlikrh" path="res://Assets/factory.png" id="24_0pakh"]
+[ext_resource type="PackedScene" uid="uid://bjku4onibi7qc" path="res://town.tscn" id="24_f3u31"]
 [ext_resource type="Texture2D" uid="uid://c8w3njomissyw" path="res://Assets/headquarter.png" id="25_hgpwr"]
 
 [node name="EditorMenu" type="CanvasLayer"]
@@ -248,6 +249,7 @@ stretch_mode = 2
 script = ExtResource("22_jha35")
 
 [node name="SubMenuBuildings" type="Panel" parent="Panel/GridContainer/BuildingTexture"]
+visible = false
 layout_mode = 1
 offset_left = -89.0
 offset_top = -2.0
@@ -269,6 +271,7 @@ offset_bottom = 25.0
 texture = ExtResource("21_wc1y4")
 stretch_mode = 2
 script = ExtResource("23_ioxan")
+building_type = ExtResource("24_f3u31")
 
 [node name="TownItem2" type="TextureRect" parent="Panel/GridContainer/BuildingTexture/SubMenuBuildings/GridContainer"]
 layout_mode = 2

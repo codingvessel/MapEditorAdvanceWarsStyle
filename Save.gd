@@ -18,8 +18,6 @@ var level = get_node("/root/MapEditor/Level")
 @onready
 var tile_map : TileMap = level.get_node("TileMap")
 
-
-
 var file_name := "my_level"
 
 func _ready():

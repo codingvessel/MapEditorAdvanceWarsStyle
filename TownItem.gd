@@ -2,7 +2,7 @@ extends TextureRect
 
 
 @export
-var tile_type = Global.TileType.GRASS
+var building_type:PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,4 +12,4 @@ func _ready():
 func item_clicked(event):
 	if event is InputEvent:
 		if event.is_action_pressed("left_click"):
-			pass
+			Global.current_building = building_type

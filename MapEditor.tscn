@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfwvhucf26qyw"]
+[gd_scene load_steps=10 format=3 uid="uid://dfwvhucf26qyw"]
 
 [ext_resource type="Script" path="res://EditorObject.gd" id="1_j3qco"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_bgth3"]
 [ext_resource type="Script" path="res://Level.gd" id="3_prgsa"]
 [ext_resource type="PackedScene" uid="uid://bjacfn4gxgll1" path="res://EditorMenu.tscn" id="4_khckp"]
 [ext_resource type="Texture2D" uid="uid://b3ct7q7nl0cn" path="res://Assets/tilemap_spritesheet.png" id="4_l247p"]
+[ext_resource type="PackedScene" uid="uid://bjku4onibi7qc" path="res://town.tscn" id="5_0k7ld"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m35dq"]
 texture = ExtResource("4_l247p")
@@ -49,12 +50,16 @@ texture = ExtResource("4_l247p")
 3:3/0 = 0
 3:3/0/custom_data_0 = "FOREST"
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ldtbv"]
+scenes/0/scene = ExtResource("5_0k7ld")
+
 [sub_resource type="TileSet" id="TileSet_db1bt"]
 custom_data_layer_0/name = "TileType"
 custom_data_layer_0/type = 4
 custom_data_layer_1/name = "Cover"
 custom_data_layer_1/type = 2
 sources/0 = SubResource("TileSetAtlasSource_m35dq")
+sources/1 = SubResource("TileSetScenesCollectionSource_ldtbv")
 
 [node name="MapEditor" type="Node2D"]
 
@@ -73,5 +78,13 @@ script = ExtResource("3_prgsa")
 [node name="TileMap" type="TileMap" parent="Level"]
 tile_set = SubResource("TileSet_db1bt")
 format = 2
+layer_0/name = "0: Tiles"
+layer_1/name = "1: Buildings"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(524294, 1, 65536, 524295, 1, 65536, 524296, 1, 65536, 589830, 1, 65536, 589831, 1, 65536, 589832, 1, 65536, 589833, 1, 65536, 589834, 1, 65536, 524298, 1, 65536, 524297, 1, 65536, 458761, 1, 65536, 458760, 1, 65536, 458759, 1, 65536, 458758, 1, 65536, 393222, 1, 65536, 393223, 1, 65536, 393224, 1, 65536, 393225, 1, 65536, 458762, 1, 65536, 458763, 1, 65536, 524299, 1, 65536, 393226, 1, 65536, 327690, 1, 65536, 589835, 1, 65536, 393227, 1, 65536, 327691, 1, 65536, 327689, 1, 65536, 327688, 1, 65536, 327687, 1, 65536, 327686, 1, 65536, 327685, 1, 65536, 327684, 1, 65536, 262148, 1, 65536, 196611, 1, 65536, 131074, 1, 65536, 65537, 1, 65536, 1, 1, 65536, 0, 1, 65536, 2, 1, 65536, 3, 1, 65536, 4, 1, 65536, 5, 1, 65536, 6, 1, 65536, 65543, 1, 65536, 65544, 1, 65536, 65545, 1, 65536, 65546, 1, 65536, 131082, 1, 65536, 131081, 1, 65536, 131080, 1, 65536, 131079, 1, 65536, 65542, 1, 65536, 65541, 1, 65536, 65540, 1, 65536, 65539, 1, 65536, 65538, 1, 65536, 9, 1, 65536, 8, 1, 65536, 7, 1, 65536, 10, 1, 65536, 11, 1, 65536, 65547, 1, 65536, 131083, 1, 65536, 196619, 1, 65536, 196618, 1, 65536, 262154, 1, 65536, 262153, 1, 65536, 196616, 1, 65536, 131078, 1, 65536, 196613, 1, 65536, 196612, 1, 65536, 131075, 1, 65536, 131076, 1, 65536, 131077, 1, 65536, 196615, 1, 65536, 196614, 1, 65536, 262150, 1, 65536, 262151, 1, 65536, 262152, 1, 65536, 262155, 1, 65536, 196617, 1, 65536, 262149, 1, 65536, 196610, 1, 65536, 131073, 1, 65536, 65536, 1, 65536, 131072, 1, 65536, 196608, 1, 65536, 262145, 1, 65536, 196609, 1, 65536, 262144, 1, 65536, 327680, 1, 65536, 327681, 1, 65536, 327682, 1, 65536, 262147, 1, 65536, 327683, 1, 65536, 393220, 1, 65536, 262146, 1, 65536, 393221, 1, 65536, 393219, 1, 65536, 393218, 1, 65536, 393217, 1, 65536, 393216, 1, 65536, 458752, 1, 65536, 458753, 1, 65536, 524289, 1, 65536, 524290, 1, 65536, 524291, 1, 65536, 524292, 1, 65536, 524293, 1, 65536, 458757, 1, 65536, 458756, 1, 65536, 458755, 1, 65536, 458754, 1, 65536, 524288, 1, 65536)
 
 [node name="EditorMenu" parent="." instance=ExtResource("4_khckp")]

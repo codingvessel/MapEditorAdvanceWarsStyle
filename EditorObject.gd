@@ -2,10 +2,13 @@ extends Node2D
 
 
 @onready
-var level = get_node("/root/MapEditor/Level")
+var level = $"../Level"
 
 @onready
-var tile_map : TileMap = level.get_node("TileMap")
+var tile_map : TileMap = $"../Level/TileMap"
+
+@onready
+var buildings = $"../Level/Buildings"
 
 var current_item
 var tiled_mouse_position
@@ -33,11 +36,11 @@ func _process(delta):
 				place_tile(Global.current_tile_coordinates)
 			if mouse_action_remove_down:
 				remove_tile()
-		elif Global.place_mode == Global.CursorModes.TILE:
+		elif Global.place_mode == Global.CursorModes.BUILDING:
 			if mouse_action_place_down:
-				place_tile(Global.current_tile_coordinates)
+				place_building()
 			if mouse_action_remove_down:
-				remove_tile()
+				remove_building()
 	
 func _unhandled_input(event):
 	
@@ -69,6 +72,14 @@ func place_tile(atlas_coords:Vector2i):
 
 func remove_tile():
 	place_tile(Global.tile_to_atlas_coordinates.get(Global.TileType.WATER))
+	
+func place_building():
+	if tiled_mouse_position.x < 0 or tiled_mouse_position.x >= width or tiled_mouse_position.y < 0 or tiled_mouse_position.y >= height:
+		return
+	tile_map.set_cell(1, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),1, Vector2i.ZERO)
+
+func remove_building():
+	tile_map.set_cell(1, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),-1, Vector2i(-1,-1), -1)
 
 func _on_map_changed(new_level):
 	level.queue_free()
