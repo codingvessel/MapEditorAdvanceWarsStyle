@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" path="res://Buildings/player_1hq.tscn" id="10_7nph0"]
 [ext_resource type="PackedScene" uid="uid://crwbhmexe4ge6" path="res://Buildings/player_2_town.tscn" id="11_bebty"]
 [ext_resource type="PackedScene" path="res://Buildings/player_2_factory.tscn" id="12_xncsf"]
-[ext_resource type="PackedScene" path="res://Buildings/player_2hq.tscn" id="13_vojeq"]
+[ext_resource type="PackedScene" uid="uid://dcxvpmnc5ax0o" path="res://Buildings/player_2hq.tscn" id="13_vojeq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m35dq"]
 texture = ExtResource("4_l247p")
