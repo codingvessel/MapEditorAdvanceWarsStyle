@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwsyd3qyk6rml"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_hvql7"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_hvql7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 143.0
+offset_top = 78.0
+offset_right = 236.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+offset_right = 93.0
+offset_bottom = 31.0
+text = "Play"
+
+[node name="LoadDialog" type="VBoxContainer" parent="VBoxContainer/Play"]
+offset_left = 96.0
+offset_top = -67.0
+offset_right = 296.0
+offset_bottom = 58.0
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/Play/LoadDialog"]
+custom_minimum_size = Vector2(200, 100)
+offset_right = 200.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 11
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Play/LoadDialog"]
+offset_left = 28.0
+offset_top = 104.0
+offset_right = 172.0
+offset_bottom = 124.0
+size_flags_horizontal = 4
+
+[node name="Confirm" type="Button" parent="VBoxContainer/Play/LoadDialog/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+offset_right = 70.0
+offset_bottom = 20.0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "Confirm
+"
+
+[node name="Cancel" type="Button" parent="VBoxContainer/Play/LoadDialog/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+offset_left = 74.0
+offset_right = 144.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 8
+text = "Cancel"
+
+[node name="MapEditor" type="Button" parent="VBoxContainer"]
+offset_top = 35.0
+offset_right = 93.0
+offset_bottom = 66.0
+text = "Map Editor"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play/LoadDialog/HBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="VBoxContainer/MapEditor" to="." method="_on_map_editor_pressed"]

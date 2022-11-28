@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvwag4koyufcr"]
+
+[ext_resource type="Shader" path="res://screen_transition.gdshader" id="1_3vgca"]
+[ext_resource type="Script" path="res://screen_transition.gd" id="1_07cus"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55lab"]
+shader = ExtResource("1_3vgca")
+shader_parameter/dissolve_state = -1.0
+shader_parameter/fragment_number = Vector2(15, 15)
+
+[sub_resource type="Animation" id="Animation_4tw6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/dissolve_state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0]
+}
+
+[sub_resource type="Animation" id="Animation_gu3ok"]
+resource_name = "dissolve"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/dissolve_state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.8, 1),
+"update": 0,
+"values": [-1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmgyq"]
+_data = {
+"RESET": SubResource("Animation_4tw6m"),
+"dissolve": SubResource("Animation_gu3ok")
+}
+
+[node name="ScreenTransition" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_07cus")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_55lab")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gmgyq")
+}

@@ -10,6 +10,7 @@ var current_tile_coordinates = Vector2i(0,3)
 var current_building:int
 var can_place = false
 
+var battlemap
 
 enum CursorModes {
 	TILE,
