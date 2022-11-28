@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccmri5r7c3ntr"]
+
+[ext_resource type="Texture2D" uid="uid://c8w3njomissyw" path="res://Assets/headquarter.png" id="1_simhv"]
+
+[node name="HQ" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_simhv")
+offset = Vector2(0, -5)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://ccmri5r7c3ntr" path="res://Buildings/hq.tscn" id="1_rj64t"]
+
+[node name="Player1HQ" instance=ExtResource("1_rj64t")]
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0.278431, 0.290196, 1)

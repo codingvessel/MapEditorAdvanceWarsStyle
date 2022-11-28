@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crwbhmexe4ge6"]
+
+[ext_resource type="PackedScene" uid="uid://bjku4onibi7qc" path="res://Buildings/town.tscn" id="1_osi3g"]
+
+[node name="Player2Town" instance=ExtResource("1_osi3g")]
+modulate = Color(0.396078, 0.588235, 1, 1)

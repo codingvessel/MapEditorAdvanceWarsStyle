@@ -7,7 +7,7 @@ signal new_map(dimension_x, dimension_y)
 signal selected_tile_changed(selected_tile)
 
 var current_tile_coordinates = Vector2i(0,3)
-var current_building:PackedScene
+var current_building:int
 var can_place = false
 
 

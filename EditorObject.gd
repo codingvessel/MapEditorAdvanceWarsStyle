@@ -38,7 +38,7 @@ func _process(delta):
 				remove_tile()
 		elif Global.place_mode == Global.CursorModes.BUILDING:
 			if mouse_action_place_down:
-				place_building()
+				place_building(Global.current_building)
 			if mouse_action_remove_down:
 				remove_building()
 	
@@ -73,10 +73,10 @@ func place_tile(atlas_coords:Vector2i):
 func remove_tile():
 	place_tile(Global.tile_to_atlas_coordinates.get(Global.TileType.WATER))
 	
-func place_building():
+func place_building(scene_index:int):
 	if tiled_mouse_position.x < 0 or tiled_mouse_position.x >= width or tiled_mouse_position.y < 0 or tiled_mouse_position.y >= height:
 		return
-	tile_map.set_cell(1, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),1, Vector2i.ZERO)
+	tile_map.set_cell(1, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),1, Vector2(0,0), scene_index)
 
 func remove_building():
 	tile_map.set_cell(1, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),-1, Vector2i(-1,-1), -1)

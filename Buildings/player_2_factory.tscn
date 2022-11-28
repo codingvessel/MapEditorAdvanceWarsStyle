@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://bt8pecx68cuwn" path="res://Buildings/factory.tscn" id="1_tx0j7"]
+
+[node name="Player2Factory" instance=ExtResource("1_tx0j7")]
+modulate = Color(0.396078, 0.588235, 1, 1)
