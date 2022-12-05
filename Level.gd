@@ -10,11 +10,9 @@ var neutral_buildings:Array[Vector2i]
 var player_1_buildings:Array[Vector2i]
 var player_2_buildings:Array[Vector2i]
 
-
 func _ready():
 	buildings = tilemap.get_used_cells(building_layer)
 	collect_player_buildings()
-	
 	
 
 func collect_player_buildings():

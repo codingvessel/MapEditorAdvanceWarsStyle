@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpyisrw04e6he"]
+[gd_scene load_steps=4 format=3 uid="uid://cpyisrw04e6he"]
 
 [ext_resource type="Script" path="res://Battlemap.gd" id="1_jht31"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_r6mbq"]
+
+[sub_resource type="Theme" id="Theme_kn44q"]
+Label/font_sizes/font_size = 12
 
 [node name="Battlemap" type="Node2D"]
 script = ExtResource("1_jht31")
@@ -10,3 +13,24 @@ script = ExtResource("1_jht31")
 offset = Vector2(200, 125)
 current = true
 script = ExtResource("2_r6mbq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Player1GUI" type="Panel" parent="CanvasLayer"]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 114.0
+offset_bottom = 48.0
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/Player1GUI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -12.5
+offset_right = 87.0
+offset_bottom = 10.5
+grow_vertical = 2
+theme = SubResource("Theme_kn44q")
+text = "Money: 50000"

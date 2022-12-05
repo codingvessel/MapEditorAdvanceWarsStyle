@@ -3,12 +3,12 @@
 [ext_resource type="Shader" path="res://screen_transition.gdshader" id="1_3vgca"]
 [ext_resource type="Script" path="res://screen_transition.gd" id="1_07cus"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_55lab"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7ngc"]
 shader = ExtResource("1_3vgca")
 shader_parameter/dissolve_state = -1.0
 shader_parameter/fragment_number = Vector2(15, 15)
 
-[sub_resource type="Animation" id="Animation_4tw6m"]
+[sub_resource type="Animation" id="Animation_hy755"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [-1.0]
 }
 
-[sub_resource type="Animation" id="Animation_gu3ok"]
+[sub_resource type="Animation" id="Animation_0ykg7"]
 resource_name = "dissolve"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -38,10 +38,10 @@ tracks/0/keys = {
 "values": [-1.0, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmgyq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ltjwt"]
 _data = {
-"RESET": SubResource("Animation_4tw6m"),
-"dissolve": SubResource("Animation_gu3ok")
+"RESET": SubResource("Animation_hy755"),
+"dissolve": SubResource("Animation_0ykg7")
 }
 
 [node name="ScreenTransition" type="CanvasLayer"]
@@ -50,7 +50,7 @@ script = ExtResource("1_07cus")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0, 0, 0, 1)
-material = SubResource("ShaderMaterial_55lab")
+material = SubResource("ShaderMaterial_t7ngc")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -63,5 +63,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_gmgyq")
+"": SubResource("AnimationLibrary_ltjwt")
 }
