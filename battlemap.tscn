@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpyisrw04e6he"]
+[gd_scene load_steps=6 format=3 uid="uid://cpyisrw04e6he"]
 
 [ext_resource type="Script" path="res://Battlemap.gd" id="1_jht31"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="2_r6mbq"]
-
-[sub_resource type="Theme" id="Theme_kn44q"]
-Label/font_sizes/font_size = 12
+[ext_resource type="Theme" uid="uid://bxkyq5hrur62h" path="res://Themes/BasicTheme.tres" id="3_gmxfe"]
+[ext_resource type="Script" path="res://TurnLabel.gd" id="4_0xrfa"]
+[ext_resource type="Script" path="res://DayLabel.gd" id="4_5wk52"]
 
 [node name="Battlemap" type="Node2D"]
 script = ExtResource("1_jht31")
@@ -23,14 +23,51 @@ offset_right = 114.0
 offset_bottom = 48.0
 
 [node name="MoneyLabel" type="Label" parent="CanvasLayer/Player1GUI"]
+visible = false
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 15.0
+theme = ExtResource("3_gmxfe")
+text = "Money: 50000"
+
+[node name="DayLabel" type="Label" parent="CanvasLayer/Player1GUI"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 6.0
-offset_top = -12.5
-offset_right = 87.0
-offset_bottom = 10.5
+offset_top = -7.5
+offset_right = 41.0
+offset_bottom = 7.5
 grow_vertical = 2
-theme = SubResource("Theme_kn44q")
-text = "Money: 50000"
+theme = ExtResource("3_gmxfe")
+text = "Day: "
+script = ExtResource("4_5wk52")
+
+[node name="TurnLabel" type="Label" parent="CanvasLayer/Player1GUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = 41.0
+grow_vertical = 0
+theme = ExtResource("3_gmxfe")
+text = "Turn:"
+script = ExtResource("4_0xrfa")
+
+[node name="EndTurnButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_gmxfe")
+text = "End turn"
+
+[connection signal="pressed" from="CanvasLayer/EndTurnButton" to="." method="_on_end_turn_button_pressed"]

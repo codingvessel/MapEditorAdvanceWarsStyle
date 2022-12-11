@@ -7,9 +7,6 @@ var level = $"../Level"
 @onready
 var tile_map : TileMap = $"../Level/TileMap"
 
-@onready
-var buildings = $"../Level/Buildings"
-
 var current_item
 var tiled_mouse_position
 var mouse_action_place_down:bool
@@ -79,8 +76,8 @@ func place_building(scene_index:int):
 	tile_map.set_cell(1, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),1, Vector2(0,0), scene_index)
 
 func remove_building():
-	tile_map.set_cell(1, Vector2i(tiled_mouse_position.x, tiled_mouse_position.y),-1, Vector2i(-1,-1), -1)
-
+	tile_map.erase_cell(1,Vector2i(tiled_mouse_position.x, tiled_mouse_position.y))
+	
 func _on_map_changed(new_level):
 	level.queue_free()
 	level = new_level

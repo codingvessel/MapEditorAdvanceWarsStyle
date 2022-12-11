@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwsyd3qyk6rml"]
+[gd_scene load_steps=3 format=3 uid="uid://cwsyd3qyk6rml"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hvql7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5afp3"]
+bg_color = Color(0.359069, 0.359069, 0.359069, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_hvql7")
@@ -24,16 +31,19 @@ offset_bottom = 31.0
 text = "Play"
 
 [node name="LoadDialog" type="VBoxContainer" parent="VBoxContainer/Play"]
-offset_left = 96.0
-offset_top = -67.0
-offset_right = 296.0
-offset_bottom = 58.0
+visible = false
+z_index = 1
+offset_left = -48.0
+offset_top = -27.0
+offset_right = 152.0
+offset_bottom = 98.0
 
 [node name="ItemList" type="ItemList" parent="VBoxContainer/Play/LoadDialog"]
 custom_minimum_size = Vector2(200, 100)
 offset_right = 200.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 11
+theme_override_styles/panel = SubResource("StyleBoxFlat_5afp3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Play/LoadDialog"]
 offset_left = 28.0
@@ -67,4 +77,5 @@ text = "Map Editor"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play/LoadDialog/HBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play/LoadDialog/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="VBoxContainer/MapEditor" to="." method="_on_map_editor_pressed"]

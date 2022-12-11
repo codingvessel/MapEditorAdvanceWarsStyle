@@ -5,6 +5,9 @@ signal edited_map_changed(loaded_map)
 signal clear_tilemap
 signal new_map(dimension_x, dimension_y)
 signal selected_tile_changed(selected_tile)
+signal selected_building_changed(selected_building)
+
+signal next_turn(player, day)
 
 var current_tile_coordinates = Vector2i(0,3)
 var current_building:int
