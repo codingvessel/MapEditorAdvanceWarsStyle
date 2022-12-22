@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready
-var player_1_money_label = $CanvasLayer/Player1GUI/MoneyLabel
+var player_money_label = $CanvasLayer/Player1GUI/VBoxContainer/MoneyLabel
 
 var level
 
@@ -27,8 +27,9 @@ func _enter_tree():
 	add_child(Global.battlemap)
 
 func _ready():
+	Global.next_turn.connect(on_next_turn_start)
 	initialize_map()
-	initialize_money()
+	process_income(TURNS.keys()[current_turn])
 	update_ui()
 	
 func initialize_map():
@@ -37,14 +38,21 @@ func initialize_map():
 	player_1_buildings = level.player_1_buildings
 	player_2_buildings = level.player_2_buildings
 	
-func initialize_money():
-	for building in player_1_buildings:
-		player_1_money += 1000
-	for building in player_2_buildings:
-		player_2_money += 1000
+func process_income(player):
+	if player == 'RED':
+		for building in player_1_buildings:
+			player_1_money += 1000
+	if player == 'BLUE':
+		for building in player_2_buildings:
+			player_2_money += 1500
 	
 func update_ui():
-	player_1_money_label.text = "Money: " + str(player_1_money)
+	var player_money = 0 
+	if current_turn == TURNS.RED:
+		player_money = player_1_money
+	else:
+		player_money = player_2_money
+	player_money_label.text = "Money: " + str(player_money)
 
 func _on_end_turn_button_pressed():
 	if current_turn == TURNS.RED:
@@ -53,3 +61,9 @@ func _on_end_turn_button_pressed():
 		current_turn = TURNS.RED
 		day += 1
 	Global.emit_signal("next_turn", TURNS.keys()[current_turn], day)
+
+
+func on_next_turn_start(player, day):
+	process_income(player)
+	update_ui()
+	
